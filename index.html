@@ -5,14 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cybertecnica – Segurança da Informação</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background: #f0f4f8;
             color: #222;
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 20px;
+            flex: 1;
+        }
         
         header {
             background: linear-gradient(135deg, #0b1f3a 0%, #1a3a6b 50%, #003366 100%);
@@ -23,6 +37,7 @@
             position: relative;
             overflow: hidden;
         }
+        
         header::before {
             content: '';
             position: absolute;
@@ -33,6 +48,7 @@
             background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05) 0%, transparent 70%);
             animation: shimmer 8s infinite linear;
         }
+        
         @keyframes shimmer {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -49,11 +65,15 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            z-index: 1;
         }
+        
         .logo-wrapper:hover {
             transform: scale(1.02);
             box-shadow: 0 20px 60px rgba(0, 80, 200, 0.4);
         }
+        
         .logo-wrapper img {
             max-width: 350px;
             width: 100%;
@@ -62,6 +82,7 @@
             filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
             transition: filter 0.3s ease;
         }
+        
         .logo-wrapper img:hover {
             filter: drop-shadow(0 8px 30px rgba(0, 180, 255, 0.5)) brightness(1.05);
         }
@@ -71,19 +92,28 @@
             font-weight: 700;
             letter-spacing: 2px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
         }
+        
         header .subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
             margin-top: 5px;
             font-weight: 300;
+            position: relative;
+            z-index: 1;
         }
+        
         header .razao-social {
             font-size: 1rem;
             opacity: 0.7;
             margin-top: 8px;
             font-weight: 300;
+            position: relative;
+            z-index: 1;
         }
+        
         .badge {
             display: inline-block;
             background: #ffb400;
@@ -94,7 +124,10 @@
             font-size: 1rem;
             margin-top: 15px;
             box-shadow: 0 4px 15px rgba(255, 180, 0, 0.3);
+            position: relative;
+            z-index: 1;
         }
+        
         .section {
             background: #fff;
             padding: 30px;
@@ -102,17 +135,20 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
+        
         .section h2 {
             color: #003366;
             border-bottom: 3px solid #003366;
             padding-bottom: 10px;
             margin-bottom: 20px;
         }
+        
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
+        
         .card {
             background: #f8fafc;
             padding: 20px;
@@ -120,26 +156,39 @@
             border-left: 4px solid #0055a0;
             transition: transform 0.2s, box-shadow 0.2s;
         }
+        
         .card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 25px rgba(0, 50, 100, 0.08);
         }
-        .card h3 { color: #003366; margin-bottom: 10px; }
-        .card p { color: #555; font-size: 0.95rem; }
+        
+        .card h3 { 
+            color: #003366; 
+            margin-bottom: 10px; 
+        }
+        
+        .card p { 
+            color: #555; 
+            font-size: 0.95rem; 
+        }
+        
         .dados {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px 30px;
         }
+        
         .dados-item {
             padding: 8px 0;
             border-bottom: 1px solid #eee;
         }
+        
         .dados-item strong {
             color: #003366;
             display: inline-block;
             width: 120px;
         }
+        
         .cta {
             background: linear-gradient(135deg, #003366, #0055a0);
             color: #fff;
@@ -148,6 +197,13 @@
             border-radius: 12px;
             margin-top: 20px;
         }
+        
+        .cta h2 {
+            color: #fff !important;
+            margin-bottom: 10px !important;
+            border-bottom: none !important;
+        }
+        
         .cta a {
             display: inline-block;
             background: #ffb400;
@@ -160,10 +216,12 @@
             margin-top: 15px;
             transition: background 0.3s, transform 0.2s;
         }
+        
         .cta a:hover {
             background: #ffc700;
             transform: scale(1.02);
         }
+        
         footer {
             text-align: center;
             padding: 25px;
@@ -172,12 +230,46 @@
             border-top: 1px solid #ddd;
             margin-top: 20px;
         }
-        footer a { color: #003366; text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
+        
+        footer a { 
+            color: #003366; 
+            text-decoration: none; 
+        }
+        
+        footer a:hover { 
+            text-decoration: underline; 
+        }
+        
         @media (max-width: 600px) {
-            .dados { grid-template-columns: 1fr; }
-            header h1 { font-size: 2rem; }
-            .logo-wrapper img { max-width: 250px; }
+            .dados { 
+                grid-template-columns: 1fr; 
+            }
+            
+            header h1 { 
+                font-size: 2rem; 
+            }
+            
+            .logo-wrapper img { 
+                max-width: 250px; 
+            }
+            
+            .dados-item strong {
+                width: 100%;
+                display: block;
+                margin-bottom: 5px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 30px 15px 30px;
+            }
+            
+            .section {
+                padding: 20px 15px;
+            }
         }
     </style>
 </head>
@@ -185,7 +277,7 @@
     <div class="container">
         <header>
             <div class="logo-wrapper">
-                <img src="logo_jg_solano.png" alt="Cybertecnica">
+                <img src="logo_jg_solano.png" alt="Cybertecnica - Logo">
             </div>
             <h1>Cybertecnica</h1>
             <p class="subtitle">🔐 Sua Proteção, Nosso Compromisso</p>
@@ -208,7 +300,6 @@
         <div class="section">
             <h2>🛡️ Serviços Oferecidos</h2>
             <div class="grid">
-
                 <div class="card">
                     <h3>Análise de Vulnerabilidades</h3>
                     <p>Escaneamento de rede, identificação de portas abertas, serviços ativos e vulnerabilidades conhecidas.</p>
@@ -238,7 +329,6 @@
                     <p>Workshops sobre phishing, engenharia social, boas práticas de senhas e segurança no dia a dia.</p>
                     <p style="margin-top:10px; font-weight:bold; color:#0055a0;">Sob consulta</p>
                 </div>
-
             </div>
         </div>
 
